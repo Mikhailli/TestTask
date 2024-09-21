@@ -28,15 +28,15 @@
         <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center"><Run Text="Описание:"/></TextBlock>
         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding NewMedicineItemViewModel.Description}"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center"><Run Text="Цена:"/></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center"><Run Text="Рубли:"/></TextBlock>
+        <xctk:DoubleUpDown Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" FontSize="14" CultureInfo="ru-RU"
+                   Value="{Binding NewMedicineItemViewModel.Rubles}" Minimum="0" Padding="2"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Center"><Run Text="Копейки:"/></TextBlock>
+        <xctk:DoubleUpDown Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" FontSize="14" CultureInfo="ru-RU"
+                   Value="{Binding NewMedicineItemViewModel.Kopecks}" Minimum="0" Maximum="99" Padding="2"/>
 
         <TextBlock Grid.Column="0" Grid.Row="5" VerticalAlignment="Center"><Run Text="Поставщик:"/></TextBlock>
         <ComboBox Grid.Row="5" Grid.Column="1" ItemsSource="{Binding SupplierItems}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedSupplier}"/>
-
-        <xctk:DoubleUpDown Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" FontSize="14" CultureInfo="ru-RU"
-                           Value="{Binding NewMedicineItemViewModel.Rubles}" Minimum="0" Padding="2"/>
-
-        <xctk:DoubleUpDown Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" FontSize="14" CultureInfo="ru-RU"
-                   Value="{Binding NewMedicineItemViewModel.Kopecks}" Minimum="0" Maximum="99" Padding="2"/>
     </Grid>
 </UserControl>

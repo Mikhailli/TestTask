@@ -1,8 +1,9 @@
 ﻿#nullable enable
+using API.Data.Services.Implementations;
 using Autofac;
 using Module = Autofac.Module;
 
-namespace Infrastructure.Modules;
+namespace API.Modules;
 
 public class ServicesModule : Module
 {

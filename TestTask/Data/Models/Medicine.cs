@@ -1,16 +1,16 @@
 ﻿#nullable enable
 
-namespace Wpf.Models;
+namespace API.Data.Models;
 
-public class Medicine
+public class Medicine : Entity
 {
-    public int Id { get; set; }
-
     public string Name { get; set; } = null!;
 
     public string Description { get; set; } = null!;
 
     public double Price { get; set; }
 
-    public Supplier Supplier { get; set; } = null!;
+    public int SupplierId { get; set; }
+
+    public virtual Supplier Supplier { get; set; } = null!;
 }

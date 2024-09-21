@@ -1,7 +1,6 @@
 ﻿#nullable enable
-using Data.Models;
-using Data.Models.ApiRequestModels;
-using Data.Services.Interfaces;
+using API.Data.Models.ApiRequestModels;
+using API.Data.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
@@ -37,9 +36,9 @@ public class MedicineController : Controller
 
     [HttpPut]
     [Route("{id}")]
-    public IActionResult UpdateMedicine([Required]int id, [FromBody](string name, string description, double price, int supplierId) parameters)
+    public IActionResult UpdateMedicine([Required]int id, [FromBody] MedicineParameters parameters)
     {
-        _medicineService.UpdateMedicine(id, parameters.name, parameters.description, parameters.price, parameters.supplierId);
+        _medicineService.UpdateMedicine(id, parameters.Name, parameters.Description, parameters.Price, parameters.SupplierId);
 
         return NoContent();
     }

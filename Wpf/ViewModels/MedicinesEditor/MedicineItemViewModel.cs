@@ -106,7 +106,7 @@ public class MedicineItemViewModel : ViewModelBase
         Name = medicine.Name;
         Description = medicine.Description;
         Rubles = (int)Math.Floor(medicine.Price);
-        Kopecks = (int)(medicine.Price % 1 * 100 % 1);
+        Kopecks = (int)(medicine.Price * 100 % 100);
         Supplier = medicine.Supplier;
     }
 

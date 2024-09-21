@@ -1,9 +1,8 @@
 ﻿#nullable enable
+using API.Data.Implementations;
+using API.Modules;
 using API.Settings;
 using Autofac;
-using Data.Implementations;
-using Infrastructure.Modules;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace API;
 

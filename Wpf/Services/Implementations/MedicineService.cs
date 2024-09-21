@@ -73,11 +73,11 @@ public class MedicineService : IMedicineService
         throw new Exception("Ошибка при добавлении товара");
     }
 
-    public async Task UpdateMedicineAsync(Medicine medicine)
+    public async Task UpdateMedicineAsync(int id, MedicineParameters parameters)
     {
-        var requestUrl = API.Medicines.UpdateMedicine(_baseUrl, medicine.Id);
+        var requestUrl = API.Medicines.UpdateMedicine(_baseUrl, id);
 
-        var jsonString = JsonConvert.SerializeObject((medicine.Name, medicine.Description, medicine.Price, medicine.Supplier.Id));
+        var jsonString = JsonConvert.SerializeObject(parameters);
         var content = new StringContent(jsonString, Encoding.UTF8, "application/json");
         var response = await _httpClient.PutAsync(requestUrl, content);
 

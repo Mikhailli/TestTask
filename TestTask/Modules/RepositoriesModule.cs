@@ -1,9 +1,11 @@
 ﻿#nullable enable
+using API.Data.Implementations;
+using API.Data.Interfaces;
 using Autofac;
 using System.Reflection;
 using Module = Autofac.Module;
 
-namespace Infrastructure.Modules;
+namespace API.Modules;
 
 public class RepositoriesModule : Module
 {

@@ -10,7 +10,7 @@ public interface IMedicineService
 
     Task<Medicine[]> GetAllAsync();
 
-    Task UpdateMedicineAsync(Medicine medicine);
+    Task UpdateMedicineAsync(int id, MedicineParameters parameters);
 
     Task<Medicine> AddMedicineAsync(MedicineParameters parameters);
 

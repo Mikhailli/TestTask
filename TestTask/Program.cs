@@ -1,3 +1,4 @@
+#nullable enable
 using API;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
