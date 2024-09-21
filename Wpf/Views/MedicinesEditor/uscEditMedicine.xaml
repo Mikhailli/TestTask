@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Wpf.Views.MedicinesEditor.uscEditMedicine"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Wpf.Views.MedicinesEditor"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"><Run Text="Редактировать медикаменты"/></TextBlock>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Center"><Run Text="Название:"/></TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding EditedMedicineItemViewModel.Name}"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Center"><Run Text="Описание:"/></TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding EditedMedicineItemViewModel.Description}"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Center"><Run Text="Цена:"/></TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding EditedMedicineItemViewModel.Price}"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Center"><Run Text="Поставщик:"/></TextBlock>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding EditedMedicineItemViewModel.Price}"/>
+    </Grid>
+</UserControl>
