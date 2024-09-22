@@ -1,5 +1,4 @@
 ﻿#nullable enable
-
 using Wpf.Infrastructure;
 
 namespace Wpf.ViewModels;
