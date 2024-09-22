@@ -110,6 +110,16 @@ public class MedicineItemViewModel : ViewModelBase
         Supplier = medicine.Supplier;
     }
 
+    public MedicineItemViewModel(MedicineItemViewModel medicineItemViewModel)
+    {
+        Id = medicineItemViewModel.Id;
+        Name = medicineItemViewModel.Name;
+        Description = medicineItemViewModel.Description;
+        Rubles = (int)Math.Floor(medicineItemViewModel.Price);
+        Kopecks = (int)(medicineItemViewModel.Price * 100 % 100);
+        Supplier = medicineItemViewModel.Supplier;
+    }
+
     public ICollection<ValidationResult>? Validate()
     {
         var context = new ValidationContext(this);

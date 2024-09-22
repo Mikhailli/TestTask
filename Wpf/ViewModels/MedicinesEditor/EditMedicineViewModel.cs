@@ -61,7 +61,7 @@ public class EditMedicineViewModel : EditorPanelViewModelBase<Medicine>
 
     public async void Init(MedicineItemViewModel supplierItemViewModel)
     {
-        EditedMedicineItemViewModel = supplierItemViewModel;
+        EditedMedicineItemViewModel = new MedicineItemViewModel(supplierItemViewModel);
         SupplierItems = new ObservableCollection<SupplierItemViewModel>();
         var suppliers = await _supplierService.GetAllAsync();
         foreach (var supplier in suppliers)

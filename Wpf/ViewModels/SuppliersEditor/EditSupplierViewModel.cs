@@ -28,7 +28,7 @@ public class EditSupplierViewModel : EditorPanelViewModelBase<Supplier>
 
     public void Init(SupplierItemViewModel supplierItemViewModel)
     {
-        EditedSupplierItemViewModel = supplierItemViewModel;
+        EditedSupplierItemViewModel = new SupplierItemViewModel(supplierItemViewModel);
     }
 
     protected async override void Save(object? obj)

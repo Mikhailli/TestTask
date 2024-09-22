@@ -51,6 +51,13 @@ public class SupplierItemViewModel : ViewModelBase
         IsSelected = false;
     }
 
+    public SupplierItemViewModel(SupplierItemViewModel supplierItemViewModel)
+    {
+        Id = supplierItemViewModel.Id;
+        Name = supplierItemViewModel.Name;
+        IsSelected = false;
+    }
+
     public ICollection<ValidationResult>? Validate()
     {
         var context = new ValidationContext(this);

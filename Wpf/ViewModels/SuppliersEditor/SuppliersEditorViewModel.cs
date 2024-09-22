@@ -1,5 +1,4 @@
 ﻿#nullable enable
-
 using System.Collections.ObjectModel;
 using Wpf.Infrastructure;
 using Wpf.Models;
