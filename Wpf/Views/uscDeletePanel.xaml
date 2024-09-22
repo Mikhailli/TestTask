@@ -7,9 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <converters:BoolToVisibilityConverter x:Key="boolToVisibilityConverter"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Border.xaml"/>
+                <ResourceDictionary Source="../Styles/Common.xaml"/>
+                <ResourceDictionary Source="../Styles/Button.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <converters:BoolToVisibilityConverter x:Key="boolToVisibilityConverter"/>
+        </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
+        <Border Style="{DynamicResource shadowBorder}"/>
         <Grid Margin="1, 1, 5, 5" Background="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -22,14 +30,15 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"
-                       Text="{Binding Message}" TextWrapping="Wrap" TextAlignment="Center"/>
+                       Style="{StaticResource BigTextBlockStyle}" FontFamily="{StaticResource FontSemilight}" Text="{Binding Message}" TextWrapping="Wrap" TextAlignment="Center"/>
 
             <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Margin="4" Width="150" Command="{Binding SaveCmd}" Content="Да"/>
-                <Button Margin="4" Width="150" Command="{Binding CloseEditorPanelCmd}" Content="Нет"/>
+                <Button Style="{StaticResource CustomFlatButton}" Margin="4" Width="150" Command="{Binding SaveCmd}" Content="Да"/>
+                <Button Style="{StaticResource CustomFlatButton}" Margin="4" Width="150" Command="{Binding CloseEditorPanelCmd}" Content="Нет"/>
             </StackPanel>
 
-            <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" TextWrapping="WrapWithOverflow"
+            <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" TextWrapping="WrapWithOverflow" Style="{StaticResource MediumTextBlockStyle}"
+                       FontFamily="{StaticResource FontSemilight}" Foreground="{StaticResource RedBrush}"
                        Text="{Binding ErrorMessage}" Visibility="{Binding HasErrors, Converter={StaticResource boolToVisibilityConverter}}"/>
         </Grid>
     </Grid>

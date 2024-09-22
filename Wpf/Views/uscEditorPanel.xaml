@@ -9,7 +9,14 @@
              d:DesignHeight="450" d:DesignWidth="800"
              VerticalAlignment="Stretch" Panel.ZIndex="2">
     <UserControl.Resources>
-        <converters:BoolToVisibilityConverter x:Key="boolToVisibilityConverter"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Border.xaml"/>
+                <ResourceDictionary Source="../Styles/Common.xaml"/>
+                <ResourceDictionary Source="../Styles/Button.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <converters:BoolToVisibilityConverter x:Key="boolToVisibilityConverter"/>
+        </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -17,6 +24,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <Border Grid.Row="0" Grid.RowSpan="2" Style="{DynamicResource shadowBorder}"/>
+        
         <Grid Grid.Row="0" Margin="5, 0, 0, 0" Background="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -27,10 +36,11 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0" Content="Сохранить" Command="{Binding SaveCmd}" Margin="4, 4, 2, 2"/>
-            <Button Grid.Row="0" Grid.Column="1" Content="Отменить изменения" Command="{Binding CloseEditorPanelCmd}" Margin="2, 4, 2, 2"/>
+            <Button Style="{StaticResource CustomFlatButton}" Grid.Row="0" Grid.Column="0" Content="Сохранить" Command="{Binding SaveCmd}" Margin="4, 4, 2, 2"/>
+            <Button Style="{StaticResource CustomFlatButton}" Grid.Row="0" Grid.Column="1" Content="Отменить изменения" Command="{Binding CloseEditorPanelCmd}" Margin="2, 4, 2, 2"/>
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="WrapWithOverflow"
+            <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="WrapWithOverflow" Style="{StaticResource MediumTextBlockStyle}"
+                       FontFamily="{StaticResource FontSemilight}" Foreground="{StaticResource RedBrush}"
                        Text="{Binding ErrorMessage}" Visibility="{Binding HasErrors, Converter={StaticResource boolToVisibilityConverter}}"/>
         </Grid>
 
