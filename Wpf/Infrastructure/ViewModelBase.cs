@@ -17,32 +17,8 @@ public abstract class ViewModelBase : IViewModel
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    protected virtual void RaisePropertyChangedInCurrentDispatcher(string propertyName)
-    {
-        CurrentDispatcher.Invoke(() => RaisePropertyChanged(propertyName));
-    }
-
     protected virtual void RaiseCommandCanExecuteChanged(ICommandWithRaiseCanExecute command)
     {
         command.RaiseCanExecuteChanged();
-    }
-
-    protected virtual void RaiseCommandCanExecuteChangedInCurrentDispathcer(ICommandWithRaiseCanExecute command)
-    {
-        CurrentDispatcher.Invoke(() => RaiseCommandCanExecuteChanged(command));
-    }
-
-    protected T RaiseAndSetIfChanged<T>(ref T field, T newValue, [CallerMemberName] string? propertyName = null)
-    {
-        ArgumentNullException.ThrowIfNull(propertyName, nameof(propertyName));
-
-        if (EqualityComparer<T>.Default.Equals(field, newValue))
-        {
-            return newValue;
-        }
-
-        field = newValue;
-        RaisePropertyChanged(propertyName);
-        return newValue;
     }
 }
