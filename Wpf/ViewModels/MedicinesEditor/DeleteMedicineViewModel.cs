@@ -30,7 +30,7 @@ public class DeleteMedicineViewModel : EditorPanelViewModelBase<Medicine>
     public void Init(MedicineItemViewModel medicineItemViewModel)
     {
         DeletedMedicineItem = medicineItemViewModel;
-        Message = $"Удалить поставщика {DeletedMedicineItem.Name}?";
+        Message = $"Удалить медикаменты {DeletedMedicineItem.Name}?";
     }
 
     protected override async void Save(object? obj)
