@@ -1,5 +1,4 @@
 ﻿#nullable enable
-
 using System.Net.Http;
 
 namespace Wpf.Infrastructure;
