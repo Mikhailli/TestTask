@@ -7,8 +7,6 @@ public class Supplier : Entity
 {
     public string Name { get; set; } = null!;
 
-    public bool IsObsolete { get; set; }
-
     [JsonIgnore]
     public virtual ICollection<Medicine> Medicines { get; set; } = null!;
 }
